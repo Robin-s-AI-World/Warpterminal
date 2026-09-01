@@ -10,9 +10,9 @@
 # trigger is used here.
 
 name: Sync PR Checks
+# Personal-fork safety: manual only. Upstream PR automation is not needed here.
 on:
-  pull_request:
-    types: [opened, reopened, edited, synchronize, ready_for_review]
+  workflow_dispatch:
 
 jobs:
   check:

@@ -1,7 +1,6 @@
 name: Update PR Review Skill (Local)
+# Personal-fork safety: manual only. Do not consume Actions on inherited schedules.
 on:
-  schedule:
-    - cron: '0 9 * * 1'  # Every Monday at 09:00 UTC
   workflow_dispatch:
     inputs:
       lookback_days:

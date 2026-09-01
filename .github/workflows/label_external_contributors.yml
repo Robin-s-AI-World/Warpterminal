@@ -16,9 +16,9 @@
 
 name: Label External Contributors
 
+# Personal-fork safety: manual only. Upstream contributor automation is not needed here.
 on:
-  pull_request_target:
-    types: [opened]
+  workflow_dispatch:
 
 # Default to a read-only token. The job below widens permissions explicitly.
 permissions:

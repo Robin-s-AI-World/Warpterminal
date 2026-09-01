@@ -1,10 +1,6 @@
 name: Repo Sync
+# Personal-fork safety: manual only. Never sync with Warp's upstream/private repositories automatically.
 on:
-  push:
-    branches: [master]
-  pull_request:
-    types: [closed, opened, synchronize, edited, labeled]
-    branches: [master]
   workflow_dispatch:
     inputs:
       action:

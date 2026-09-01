@@ -1,13 +1,5 @@
+# Personal-fork safety: manual only. Upstream PR CI is not needed here.
 on:
-  pull_request:
-    branches:
-      - 'master'
-      - '*_release/*'
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
   workflow_dispatch:
     inputs:
       runner_type:
@@ -16,8 +8,6 @@ on:
         options:
           - self_hosted
           - github_hosted
-  workflow_call:
-
 name: Warp CI
 
 env:

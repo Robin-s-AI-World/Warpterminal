@@ -19,9 +19,8 @@
 # ======================================================================================
 
 name: Stale Requested-Changes PRs
+# Personal-fork safety: manual only. Do not consume Actions on inherited schedules.
 on:
-  schedule:
-    - cron: '7 12 * * *' # 12:07 UTC daily (minute 7 avoids top-of-hour scheduler congestion)
   workflow_dispatch:
     inputs:
       mode:

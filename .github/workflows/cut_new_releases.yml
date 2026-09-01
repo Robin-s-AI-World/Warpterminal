@@ -5,11 +5,8 @@
 # channels, or all release channels.  Releases run in parallel where able.
 
 name: Cut New Releases
+# Personal-fork safety: manual only. Do not consume Actions on inherited schedules.
 on:
-  schedule:
-    # Run this job every morning at 3am EST.
-    - cron: "0 8 * * *"
-
   workflow_dispatch:
     inputs:
       targets:

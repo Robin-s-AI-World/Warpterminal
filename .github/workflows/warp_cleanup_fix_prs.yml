@@ -11,9 +11,9 @@
 # ======================================================================================
 
 name: Cleanup Fix PRs
+# Personal-fork safety: manual only. Upstream PR automation is not needed here.
 on:
-  pull_request:
-    types: [closed]
+  workflow_dispatch:
 
 jobs:
   close-fix-prs:

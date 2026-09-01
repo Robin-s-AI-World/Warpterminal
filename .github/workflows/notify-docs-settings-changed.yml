@@ -9,12 +9,9 @@ name: Notify docs of Settings UI changes
 #      is also posted to #growth-docs.
 #   3. To trigger the refresh manually, go to:
 #      warpdotdev/docs > Actions > Refresh UI paths snapshot > Run workflow
+# Personal-fork safety: manual only. Never dispatch into upstream documentation.
 on:
-  push:
-    branches:
-      - master
-    paths:
-      - 'app/src/settings_view/**'
+  workflow_dispatch:
 
 # This workflow does not use GITHUB_TOKEN, but we set an explicit empty
 # permissions block to satisfy CodeQL and follow least-privilege conventions.

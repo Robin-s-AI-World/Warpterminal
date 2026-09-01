@@ -1,8 +1,7 @@
 name: Feature Flag Cleanup
 
+# Personal-fork safety: manual only. Do not consume Actions on inherited schedules.
 on:
-  schedule:
-    - cron: '0 15 * * *' # 10am EST
   workflow_dispatch:
 
 # Default to a read-only token. Jobs that need to push or open PRs widen

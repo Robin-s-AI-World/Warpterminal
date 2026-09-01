@@ -13,9 +13,8 @@
 # ======================================================================================
 
 name: Close Stale Fix PRs
+# Personal-fork safety: manual only. Do not consume Actions on inherited schedules.
 on:
-  schedule:
-    - cron: '0 12 * * *' # 8am EST
   workflow_dispatch:
 
 jobs:

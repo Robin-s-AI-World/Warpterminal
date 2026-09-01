@@ -1,10 +1,8 @@
 name: Check Approvals
 
+# Personal-fork safety: manual only. Upstream review automation is not needed here.
 on:
-  pull_request:
-    types: [opened, synchronize, ready_for_review]
-  pull_request_review:
-    types: [submitted]
+  workflow_dispatch:
 
 jobs:
   check_owners:

@@ -5,20 +5,8 @@
 # warpdotdev/warp-internal-dev:latest-dev.
 name: Publish agent-dev image
 
+# Personal-fork safety: manual only. Never publish inherited upstream images.
 on:
-  # Rebuild whenever the image definition or any file it copies in changes.
-  push:
-    branches: [master]
-    paths:
-      - docker/agent-dev/Dockerfile
-      - rust-toolchain.toml
-      - script/**
-      - .github/workflows/publish-agent-dev-image.yml
-  # Cron has no native "every 2 weeks", so rebuild on the 1st and 15th of each
-  # month (00:00 UTC) to pick up upstream dependency updates.
-  schedule:
-    - cron: "0 0 1,15 * *"
-  # Allow manual runs.
   workflow_dispatch:
 
 permissions:
