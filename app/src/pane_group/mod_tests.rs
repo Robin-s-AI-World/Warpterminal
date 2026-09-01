@@ -371,6 +371,8 @@ fn test_server_conversation_metadata(
             platform_credits_spent: 0.0,
             total_provider_cost_in_cents: None,
             credits_spent_for_last_block: None,
+            charged_usage_for_last_block: None,
+            total_charged_usage: None,
             token_usage: vec![],
             tool_usage_metadata: Default::default(),
             context_window_segments: Vec::new(),
@@ -2812,6 +2814,29 @@ fn test_active_session_id_reset_on_last_pane_close() {
                 None,
                 "active_session_id should be None after closing the last pane"
             );
+        });
+    });
+}
+
+#[test]
+fn test_close_last_pane_clears_share_modal_state() {
+    let _undo_closed_panes = FeatureFlag::UndoClosedPanes.override_enabled(false);
+
+    App::test((), |mut app| async move {
+        initialize_app(&mut app);
+        let pane_group = mock_pane_group(&mut app, Default::default());
+
+        pane_group.update(&mut app, |panes, ctx| {
+            let pane_id = get_newly_created_pane_id(panes, &[]);
+            panes.terminal_with_open_share_block_modal = Some(
+                pane_id
+                    .as_terminal_pane_id()
+                    .expect("newly created pane should be a terminal"),
+            );
+
+            panes.close_pane(pane_id, ctx);
+
+            assert_eq!(panes.terminal_with_open_share_block_modal, None);
         });
     });
 }
